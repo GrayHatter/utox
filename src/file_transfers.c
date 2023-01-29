@@ -75,6 +75,7 @@ static FILE_TRANSFER *make_file_transfer(uint32_t friend_number, uint32_t file_n
 
             f->ft_incoming = new_ftlist;
             f->ft_incoming_size = file_number + 1;
+            memset(&new_ftlist[file_number], 0, sizeof(FILE_TRANSFER));
         }
 
         return &f->ft_incoming[file_number];
@@ -91,6 +92,7 @@ static FILE_TRANSFER *make_file_transfer(uint32_t friend_number, uint32_t file_n
 
         f->ft_outgoing = new_ftlist;
         f->ft_outgoing_size = file_number + 1;
+        memset(&new_ftlist[file_number], 0, sizeof(FILE_TRANSFER));
     }
 
     return &f->ft_outgoing[file_number];
